@@ -28,3 +28,5 @@ const UserType = new GraphQL.GraphQLObjectType({
 
   })
 })
+
+module.exports = UserType;
