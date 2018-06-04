@@ -1,10 +1,11 @@
 const GraphQL = require('graphql');
 const {
   GraphQLString,
-  GraphQLID
+  GraphQLID, 
 } = GraphQL; 
 
 const UserType = require('../types/User');
+const UserResolver = require('../resolvers/User');
 
 module.exports = {
 
@@ -14,12 +15,12 @@ module.exports = {
       description: 'This will return all the users with the given ID',
       args: {
         userID: {
-          type: GraphQLID,
+          type: GraphQLID,     
           description: 'Please enter a userID',
         }, 
       },
       resolve(parent, args, context, info) {
-        //ADD promise
+        return UserResolver.index(args);
       }
     }
   }
